@@ -20,7 +20,7 @@ export default function Navbar() {
       <div
         ref={nav}
         style={{}}
-        className={`flex absolute top-0 bg-inherit md:px-10 px-4 py-4 text-white justify-between w-full items-center`}
+        className={`flex absolute top-0 bg-inherit md:px-10 px-4 py-4 text-white justify-between w-full items-center `}
       >
         <h1 className="font-black text-2xl">
           <Image
@@ -73,7 +73,7 @@ export default function Navbar() {
             }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -300, opacity: 0 }}
-            className={`flex sticky top-0 bg-white md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2`}
+            className={`flex sticky top-0 bg-white md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-10`}
           >
             <h1 className="font-black text-2xl">
               <Image
