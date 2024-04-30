@@ -8,6 +8,7 @@ import { Input } from "../ui/input";
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Menu from "./menu";
 export default function Navbar() {
   const nav = useRef<HTMLDivElement>(null);
   const isInView: boolean = useInView(nav);
@@ -19,7 +20,6 @@ export default function Navbar() {
     <>
       <div
         ref={nav}
-        style={{}}
         className={`flex absolute top-0 bg-inherit md:px-10 px-4 py-4 text-white justify-between w-full items-center `}
       >
         <h1 className="font-black text-2xl">
@@ -59,6 +59,7 @@ export default function Navbar() {
             placeholder="Search ..."
           />
         </div>
+        <Menu />
       </div>
 
       {!isInView ? (
@@ -73,7 +74,7 @@ export default function Navbar() {
             }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -300, opacity: 0 }}
-            className={`flex sticky top-0 bg-white md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-10`}
+            className={`flex sticky top-0 bg-stone-100 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-10`}
           >
             <h1 className="font-black text-2xl">
               <Image
@@ -124,6 +125,7 @@ export default function Navbar() {
                 placeholder="Search ..."
               />
             </div>
+            <Menu />
           </motion.div>
         </AnimatePresence>
       ) : null}
