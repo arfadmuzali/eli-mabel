@@ -1,4 +1,4 @@
-import { Armchair, Paintbrush2, CalendarRange } from "lucide-react";
+import { Armchair, Paintbrush2, Bolt } from "lucide-react";
 export default function ServiceSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-5 p-5 m-auto w-fit my-10">
@@ -15,10 +15,10 @@ export default function ServiceSection() {
         <Paintbrush2 size={72} color="#44403c" />
       </Card>
       <Card
-        title="Cepat"
+        title="Custom"
         text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, ea!"
       >
-        <CalendarRange size={72} color="#44403c" />
+        <Bolt size={72} color="#44403c" />
       </Card>
     </div>
   );

@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className + " bg-stone-200"}
+        className={inter.className + " bg-stone-50"}
         suppressHydrationWarning
       >
         <div>
