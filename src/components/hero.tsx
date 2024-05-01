@@ -7,7 +7,7 @@ export default function Hero() {
       style={{
         backgroundImage: `url(${heroImage.src})`,
       }}
-      className="h-screen bg-cover bg-no-repeat select-text lg:bg-top bg-bottom-4 grid grid-cols-2 justify-center items-center md:p-20 p-10"
+      className="h-screen bg-cover bg-no-repeat select-text lg:bg-top bg-bottom-4 md:grid flex grid-cols-2 justify-center items-center md:p-20 p-10"
     >
       <motion.p
         initial={{
