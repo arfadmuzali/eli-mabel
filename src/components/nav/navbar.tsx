@@ -2,8 +2,9 @@ import Image from "next/image";
 import iconBlack from "@/../public/icon/icon-black.svg";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Menu, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { Input } from "../ui/input";
+import Menu from "./menu";
 
 export default function Navbar() {
   return (
