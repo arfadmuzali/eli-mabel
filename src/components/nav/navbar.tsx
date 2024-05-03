@@ -9,7 +9,7 @@ import Menu from "./menu";
 export default function Navbar() {
   return (
     <div
-      className={`flex sticky top-0 bg-stone-50 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-10`}
+      className={`flex sticky top-0 bg-stone-50 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-50`}
     >
       <h1 className="font-black text-2xl">
         <Image

@@ -13,9 +13,6 @@ export default function NavbarLobby() {
   const nav = useRef<HTMLDivElement>(null);
   const isInView: boolean = useInView(nav);
 
-  useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
   return (
     <>
       <div
@@ -77,7 +74,7 @@ export default function NavbarLobby() {
             }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -300, opacity: 0 }}
-            className={`flex sticky top-0 bg-stone-100 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-10`}
+            className={`flex sticky top-0 bg-stone-100 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-50`}
           >
             <h1 className="font-black text-2xl">
               <Image
