@@ -15,7 +15,6 @@ export default function Home() {
         <ServiceSection />
         <WhyUsSection />
         <FeaturedProducts />
-        <div className="h-screen"></div>
       </div>
     </QueryClientProvider>
   );
