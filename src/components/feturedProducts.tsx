@@ -34,7 +34,7 @@ export default function FeaturedProducts() {
                 href={""}
                 className=" bg-stone-700 flex justify-center items-center"
               >
-                <span className="z-10 group-hover:scale-105 absolute text-white font-bold text-xl md:w-60 w-30 text-center">
+                <span className="z-10 group-hover:scale-105 absolute text-white font-bold text-xl md:w-60 w-40 text-center">
                   {product.name}
                 </span>
                 <Image
