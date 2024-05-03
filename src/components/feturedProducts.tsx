@@ -14,7 +14,6 @@ export default function FeaturedProducts() {
     queryKey: ["getProducts"],
     queryFn: getProducts,
   });
-  console.log(query.data);
   return (
     <div className="flex flex-col items-center py-10 ">
       <h1 className="text-2xl mb-10 font-semibold text-stone-700">
@@ -31,6 +30,7 @@ export default function FeaturedProducts() {
           ) => {
             return (
               <Link
+                key={product.id}
                 href={""}
                 className=" bg-stone-700 flex justify-center items-center"
               >
