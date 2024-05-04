@@ -36,7 +36,7 @@ export default function Product({
       <h1 className="m-auto w-fit p-2 text-lg font-medium border px-10 text-stone-700">
         Semua Produk Yang Berkaitan
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center px-5 gap-1">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center lg:px-5 gap-1">
         {isLoading
           ? null
           : data.map(
@@ -65,7 +65,7 @@ export default function Product({
                         />
                       </CardHeader>
                       <CardContent className="p-0">
-                        <h1 className="text-lg font-medium p-1">
+                        <h1 className="lg:text-lg text-base font-medium p-1">
                           {product?.name}
                         </h1>
                       </CardContent>
