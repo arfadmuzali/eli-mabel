@@ -7,6 +7,6 @@ export async function GET() {
     });
     return Response.json(products);
   } catch (error) {
-    return new Response(error, { status: 400 });
+    return new Response("something error", { status: 400 });
   }
 }
