@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import iconWhite from "@/../public/icon/icon-white.svg";
 import iconBlack from "@/../public/icon/icon-black.svg";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -19,7 +19,7 @@ export default function NavbarLobby() {
         ref={nav}
         className={`flex absolute top-0 bg-inherit md:px-10 px-4 py-4 text-white justify-between w-full items-center `}
       >
-        <h1 className="font-black text-2xl">
+        <Link href={"/"} className="font-black text-2xl">
           <Image
             src={iconWhite.src}
             alt="Icon"
@@ -27,7 +27,7 @@ export default function NavbarLobby() {
             height={0}
             className="w-20"
           />
-        </h1>
+        </Link>
         <div className="hidden lg:block space-x-5 transition-all">
           <Link href={""} className="hover:text-stone-500 text-lg font-medium">
             Home
@@ -76,7 +76,7 @@ export default function NavbarLobby() {
             exit={{ y: -300, opacity: 0 }}
             className={`flex sticky top-0 bg-stone-100 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-50`}
           >
-            <h1 className="font-black text-2xl">
+            <Link href={"/"} className="font-black text-2xl">
               <Image
                 src={iconBlack.src}
                 alt="Icon"
@@ -84,7 +84,7 @@ export default function NavbarLobby() {
                 height={0}
                 className="w-20"
               />
-            </h1>
+            </Link>
             <div className="hidden lg:block space-x-5 transition-all">
               <Link
                 href={"/"}

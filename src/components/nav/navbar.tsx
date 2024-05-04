@@ -11,7 +11,7 @@ export default function Navbar() {
     <div
       className={`flex sticky top-0 bg-stone-50 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-50`}
     >
-      <h1 className="font-black text-2xl">
+      <Link href={"/"} className="font-black text-2xl">
         <Image
           src={iconBlack.src}
           alt="Icon"
@@ -19,7 +19,7 @@ export default function Navbar() {
           height={0}
           className="w-20"
         />
-      </h1>
+      </Link>
       <div className="hidden lg:block space-x-5 transition-all">
         <Link href={"/"} className="hover:text-stone-500 text-lg font-medium">
           Home
