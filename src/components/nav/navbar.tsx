@@ -43,7 +43,7 @@ export default function Navbar() {
           Contact
         </Link>
       </div>
-      <div className="hidden lg:flex items-center justify-center">
+      <div className="hidden lg:flex items-center justify-center w-2/6">
         <Button
           variant={"outline"}
           className="bg-white rounded-r-none norder-r-0"

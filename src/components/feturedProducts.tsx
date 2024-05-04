@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
-import { Product } from "@prisma/client";
+import { type Product } from "@prisma/client";
 
 export default function FeaturedProducts() {
   async function getProducts() {
@@ -31,7 +31,7 @@ export default function FeaturedProducts() {
             return (
               <Link
                 key={product.id}
-                href={""}
+                href={"/product/" + product.name.replaceAll(" ", "-")}
                 className=" bg-stone-700 flex justify-center items-center"
               >
                 <span className="z-10 group-hover:scale-105 absolute text-white font-bold text-xl md:w-60 w-40 text-center">

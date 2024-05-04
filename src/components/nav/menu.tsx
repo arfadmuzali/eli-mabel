@@ -16,28 +16,28 @@ export default function Menu() {
           <Link
             className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
             onClick={() => setIsOpen(false)}
-            href={""}
+            href={"/"}
           >
             Home
           </Link>
           <Link
             className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
             onClick={() => setIsOpen(false)}
-            href={""}
+            href={"/product"}
           >
             Produk
           </Link>
           <Link
             className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
             onClick={() => setIsOpen(false)}
-            href={""}
+            href={"/about"}
           >
             Tentang
           </Link>
           <Link
             className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
             onClick={() => setIsOpen(false)}
-            href={""}
+            href={"/contact"}
           >
             Contact
           </Link>

@@ -29,13 +29,19 @@ export default function NavbarLobby() {
           />
         </Link>
         <div className="hidden lg:block space-x-5 transition-all">
-          <Link href={""} className="hover:text-stone-500 text-lg font-medium">
+          <Link href={"/"} className="hover:text-stone-500 text-lg font-medium">
             Home
           </Link>
-          <Link href={""} className="hover:text-stone-500 text-lg font-medium">
+          <Link
+            href={"/product"}
+            className="hover:text-stone-500 text-lg font-medium"
+          >
             Produk
           </Link>
-          <Link href={""} className="hover:text-stone-500 text-lg font-medium">
+          <Link
+            href={"/about"}
+            className="hover:text-stone-500 text-lg font-medium"
+          >
             Tentang
           </Link>
           <Link
