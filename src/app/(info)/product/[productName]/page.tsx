@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import ProductSkeleton from "@/components/skeleton/productSkeleton";
 export default function Product({
   params: { productName },
 }: {
@@ -23,7 +24,7 @@ export default function Product({
       console.log(error);
     }
   }
-  const { data, isLoading } = useQuery({
+  const { data, isLoading }: any = useQuery({
     queryKey: ["getProduct"],
     queryFn: getProductByName,
   });
@@ -32,7 +33,9 @@ export default function Product({
 
   return (
     <div className="flex flex-col lg:flex-row p-5 gap-5 lg:px-14">
-      {isLoading ? null : (
+      {isLoading ? (
+        <ProductSkeleton />
+      ) : (
         <>
           <Image
             src={data?.image?.url}
