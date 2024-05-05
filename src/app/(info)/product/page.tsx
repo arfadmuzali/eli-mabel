@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 type param = string | undefined | null;
 
@@ -25,9 +26,8 @@ export default function Product({
       console.log(error);
     }
   }
-
   const { data, isLoading }: any = useQuery({
-    queryKey: ["getProductsSearch"],
+    queryKey: ["getProductsSearch", q, page],
     queryFn: getProducts,
   });
 

@@ -26,9 +26,9 @@ export default function Hero() {
       >
         Salamat datang di{" "}
         <span className="text-stone-500 md:text-stone-700 font-black">
-          ELI MABEL
+          ELI MEBEL
         </span>
-        . Menyediakan produk-produk mabel. Mulai dari kursi, meja, hingga tollet
+        . Menyediakan produk-produk mebel. Mulai dari kursi, meja, hingga tollet
         berkualitas
       </motion.p>
     </div>

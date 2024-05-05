@@ -3,20 +3,20 @@ export default function ServiceSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-5 p-5 m-auto w-fit my-10">
       <Card
-        title="Penjualan Mabel"
-        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, ea!"
+        title="Penjualan Mebel"
+        text="Penjualan mebel kami menawarkan inovasi, kualitas, dan estetika yang fungsional dan elegan."
       >
         <Armchair size={72} color="#44403c" />
       </Card>
       <Card
         title="Pengecatan"
-        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, ea!"
+        text="Teknik pengecatan khusus kami menghadirkan keindahan dan daya tahan yang luar biasa."
       >
         <Paintbrush2 size={72} color="#44403c" />
       </Card>
       <Card
         title="Custom"
-        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, ea!"
+        text="Menyediakan layanan kustomisasi mebel untuk memenuhi kebutuhan unik Anda."
       >
         <Bolt size={72} color="#44403c" />
       </Card>
