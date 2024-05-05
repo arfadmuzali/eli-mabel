@@ -12,10 +12,12 @@ import { useState } from "react";
 export default function Navbar() {
   const router = useRouter();
   const [search, setSearch] = useState<string>("");
-  async function getSearch(e: any) {
+
+  function getSearch(e: any) {
     e.preventDefault();
     router.push("/product?q=" + search);
   }
+
   return (
     <div
       className={`flex sticky top-0 bg-stone-50 md:px-10 px-4 py-4 text-black justify-between w-full items-center border-b-2 z-50`}
@@ -72,7 +74,10 @@ export default function Navbar() {
           Contact
         </Link>
       </div>
-      <form className="hidden lg:flex items-center justify-center w-2/6">
+      <form
+        onSubmit={getSearch}
+        className="hidden lg:flex items-center justify-center w-2/6"
+      >
         <Button
           type="submit"
           variant={"outline"}
