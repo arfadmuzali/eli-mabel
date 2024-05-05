@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "Eli Mebel",
     images: [
       {
-        url: "https://eli-mebel.vercel.app/images/pak-eli-screenshot.png",
+        url: "https://eli-mebel.vercel.app/img/pak-eli-screenshot.png",
       },
     ],
   },
