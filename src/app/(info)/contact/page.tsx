@@ -19,7 +19,7 @@ export default function ContactPage() {
 
         <div>
           <h1 className=" font-medium">CONTACT</h1>
-          <p className="text-sm p-2 font-medium mb-4">HP/WA: 0987654321</p>
+          <p className="text-sm p-2 font-medium mb-4">HP/WA: 6281390621386</p>
         </div>
         <h1 className="font-medium">ORDER</h1>
         <Link
