@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import ProductSkeleton from "@/components/skeleton/productSkeleton";
+import Link from "next/link";
 export default function Product({
   params: { productName },
 }: {
@@ -60,9 +61,18 @@ export default function Product({
                 <AccordionContent>{data?.description}</AccordionContent>
               </AccordionItem>
             </Accordion>
-            <Button variant={"success"} className="text-lg p-3">
+            <Link
+              href={{
+                pathname: "https://api.whatsapp.com/send",
+                query: {
+                  phone: "6281390621386",
+                  text: `Hallo saya ingin pesan ${data?.name}. Tolong dibantu, Terima kasih`,
+                },
+              }}
+              className="text-lg py-2 bg-green-600 text-primary-foreground hover:bg-green-500 rounded text-center"
+            >
               Pesan Sekarang
-            </Button>
+            </Link>
             <p className="text-sm text-stone-500">
               Category: {data?.Category?.name}
             </p>

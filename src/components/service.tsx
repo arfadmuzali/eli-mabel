@@ -1,25 +1,74 @@
+import { motion } from "framer-motion";
 import { Armchair, Paintbrush2, Bolt } from "lucide-react";
 export default function ServiceSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-5 p-5 m-auto w-fit my-10">
-      <Card
-        title="Penjualan Mebel"
-        text="Penjualan mebel kami menawarkan inovasi, kualitas, dan estetika yang fungsional dan elegan."
+      <motion.div
+        initial={{
+          y: 100,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          type: "tween",
+          duration: 1,
+        }}
+        viewport={{ once: true }}
       >
-        <Armchair size={72} color="#44403c" />
-      </Card>
-      <Card
-        title="Pengecatan"
-        text="Teknik pengecatan khusus kami menghadirkan keindahan dan daya tahan yang luar biasa."
+        <Card
+          title="Penjualan Mebel"
+          text="Penjualan mebel kami menawarkan inovasi, kualitas, dan estetika yang fungsional dan elegan."
+        >
+          <Armchair size={72} color="#44403c" />
+        </Card>
+      </motion.div>
+      <motion.div
+        initial={{
+          y: 100,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          type: "tween",
+          duration: 1,
+        }}
+        viewport={{ once: true }}
       >
-        <Paintbrush2 size={72} color="#44403c" />
-      </Card>
-      <Card
-        title="Custom"
-        text="Menyediakan layanan kustomisasi mebel untuk memenuhi kebutuhan unik Anda."
+        <Card
+          title="Pengecatan"
+          text="Teknik pengecatan khusus kami menghadirkan keindahan dan daya tahan yang luar biasa."
+        >
+          <Paintbrush2 size={72} color="#44403c" />
+        </Card>
+      </motion.div>
+      <motion.div
+        initial={{
+          y: 100,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          type: "tween",
+          duration: 1,
+        }}
+        viewport={{ once: true }}
       >
-        <Bolt size={72} color="#44403c" />
-      </Card>
+        <Card
+          title="Custom"
+          text="Menyediakan layanan kustomisasi mebel untuk memenuhi kebutuhan unik Anda."
+        >
+          <Bolt size={72} color="#44403c" />
+        </Card>
+      </motion.div>
     </div>
   );
 }

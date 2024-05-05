@@ -23,7 +23,13 @@ export default function ContactPage() {
         </div>
         <h1 className="font-medium">ORDER</h1>
         <Link
-          href={""}
+          href={{
+            pathname: "https://api.whatsapp.com/send",
+            query: {
+              phone: "6281390621386",
+              text: `Hallo saya ingin pesan mebel. Tolong dibantu, Terima kasih`,
+            },
+          }}
           className="w-full m-2 p-1 bg-green-600 flex flex-row justify-center items-center rounded"
         >
           <Image
