@@ -15,8 +15,8 @@ export default function FeaturedProducts() {
     queryFn: getProducts,
   });
   return (
-    <div className="flex flex-col items-center py-10 ">
-      <h1 className="text-2xl mb-10 font-semibold text-stone-700">
+    <div className="flex flex-col items-center py-10 bg-gradient-to-b from-stone-50 to-stone-300">
+      <h1 className="text-2xl text-center  mb-5 font-semibold text-stone-700 w-full p-10">
         Produk Unggulan
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-5 gap-2 ">

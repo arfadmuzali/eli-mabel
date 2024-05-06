@@ -32,7 +32,7 @@ const carouselImages: { src: string }[] = [
 
 export default function WhyUsSection() {
   return (
-    <div className="flex flex-col lg:flex-row  justify-evenly items-center gap-7">
+    <div className="flex flex-col lg:flex-row  justify-evenly items-center gap-7 bg-gradient-to-b from-stone-50 via-stone-200 to-stone-50">
       <Carousel
         plugins={[
           Autoplay({

@@ -9,7 +9,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import ProductSkeleton from "@/components/skeleton/productSkeleton";
 import Link from "next/link";
 export default function Product({
@@ -30,8 +29,6 @@ export default function Product({
     queryFn: getProductByName,
   });
 
-  console.log(data);
-
   return (
     <div className="flex flex-col lg:flex-row p-5 gap-5 lg:px-14">
       {isLoading ? (
@@ -45,7 +42,7 @@ export default function Product({
             width={400}
             height={400}
             priority
-            className="lg:w-3/6"
+            className="lg:w-3/6 m-auto"
           />
           <div className="flex flex-col lg:w-3/6 gap-4">
             <h1 className="text-3xl font-semibold">{data?.name}</h1>
