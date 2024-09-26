@@ -13,9 +13,7 @@ import Link from "next/link";
 // Fungsi untuk mengambil data produk dari API menggunakan axios
 async function getProductByName(productName: string) {
   try {
-    const response = await axios.get(
-      `http://localhost:3000/api/products/${productName}`
-    );
+    const response = await axios.get(`/api/products/${productName}`);
     return response.data;
   } catch (error) {
     console.error(error);
