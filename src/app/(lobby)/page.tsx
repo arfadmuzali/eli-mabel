@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Hero from "@/components/hero";
 import ServiceSection from "@/components/service";
 import WhyUsSection from "@/components/whyUs";
+import Collection from "@/components/collection";
 
 const queryClient = new QueryClient();
 
@@ -12,6 +13,7 @@ export default function Home() {
     <QueryClientProvider client={queryClient}>
       <div>
         <Hero />
+        <Collection />
         <ServiceSection />
         <WhyUsSection />
         <FeaturedProducts />

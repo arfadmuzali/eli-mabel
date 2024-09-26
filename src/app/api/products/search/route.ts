@@ -4,29 +4,54 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const q = searchParams.get("q");
-    const page = searchParams.get("page");
+    const page = Number(searchParams.get("page")) || 0; // default ke 0 jika tidak ada
+
+    const productsQuery: {
+      skip: number;
+      take: number;
+      where?: {
+        name: {
+          contains: string;
+          mode: "insensitive";
+        };
+      };
+    } = {
+      skip: page * 12,
+      take: 12,
+    };
 
     if (q) {
-      const products = await prisma.product.findMany({
-        where: {
-          name: {
-            contains: q,
-            mode: "insensitive",
-          },
+      // Jika ada query pencarian
+      productsQuery.where = {
+        name: {
+          contains: q,
+          mode: "insensitive",
         },
-        skip: Number(page) * 12 ?? 0,
-        take: 12,
-      });
-      return Response.json(products);
+      };
     }
 
-    const products = await prisma.product.findMany({
-      skip: Number(page) * 12 ?? 0,
-      take: 12,
+    const products = await prisma.product.findMany(productsQuery);
+    const totalProducts = await prisma.product.count({
+      where: q
+        ? {
+            name: {
+              contains: q,
+              mode: "insensitive",
+            },
+          }
+        : {},
     });
 
-    return Response.json(products);
+    const totalPages = Math.ceil(totalProducts / 12); // Menghitung total halaman
+
+    return Response.json({
+      products,
+      currentPage: page + 1, // Menambahkan 1 untuk halaman saat ini (karena page dimulai dari 0)
+      totalPage: totalPages,
+      lastPage: totalPages, // Halaman terakhir sama dengan totalPages
+    });
   } catch (error) {
-    return new Response("something error", { status: 400 });
+    console.error(error); // Log error untuk debugging
+    return new Response("Something went wrong", { status: 400 });
   }
 }

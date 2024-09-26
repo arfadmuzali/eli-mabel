@@ -15,7 +15,7 @@ export default function FeaturedProducts() {
     queryFn: getProducts,
   });
   return (
-    <div className="flex flex-col items-center py-10 bg-gradient-to-b from-stone-50 to-stone-300">
+    <div className="flex flex-col items-center py-10">
       <h1 className="text-2xl text-center  mb-5 font-semibold text-stone-700 w-full p-10">
         Produk Unggulan
       </h1>
@@ -38,7 +38,7 @@ export default function FeaturedProducts() {
                   {product.name}
                 </span>
                 <Image
-                  src={product.image.url}
+                  src={product.image}
                   alt="image"
                   width={400}
                   height={400}

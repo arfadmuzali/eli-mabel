@@ -16,7 +16,10 @@ export default function ServiceSection() {
           type: "tween",
           duration: 1,
         }}
-        viewport={{ once: true }}
+        onViewportLeave={() => {
+          document.querySelector(".motion-div")?.classList.add("out-of-view");
+        }}
+        className="motion-div"
       >
         <Card
           title="Penjualan Mebel"
@@ -38,7 +41,10 @@ export default function ServiceSection() {
           type: "tween",
           duration: 1,
         }}
-        viewport={{ once: true }}
+        onViewportLeave={() => {
+          document.querySelector(".motion-div")?.classList.add("out-of-view");
+        }}
+        className="motion-div"
       >
         <Card
           title="Pengecatan"
@@ -60,7 +66,10 @@ export default function ServiceSection() {
           type: "tween",
           duration: 1,
         }}
-        viewport={{ once: true }}
+        onViewportLeave={() => {
+          document.querySelector(".motion-div")?.classList.add("out-of-view");
+        }}
+        className="motion-div"
       >
         <Card
           title="Custom"

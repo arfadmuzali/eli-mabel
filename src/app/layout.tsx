@@ -35,11 +35,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className + " bg-stone-50"}
+        className={inter.className + " bg-stone-50 bg-opacity-15"}
+        style={{
+          backgroundImage: "url('/img/topography.svg')",
+          // backgroundBlendMode: "soft-light",
+          backgroundRepeat: "repeat",
+        }}
         suppressHydrationWarning
       >
-        <div>
-          {children}
+        <div className="flex flex-col justify-between">
+          <div>{children}</div>
 
           <Footer />
         </div>

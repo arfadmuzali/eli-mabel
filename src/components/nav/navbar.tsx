@@ -71,7 +71,7 @@ export default function Navbar() {
           href={"/contact"}
           className="hover:text-stone-500 text-lg font-medium"
         >
-          Contact
+          Kontak
         </Link>
       </div>
       <form

@@ -8,17 +8,17 @@ datasource db {
 }
 
 model Category {
-  id      String    @id @default(cuid())
+  id      Int       @id @default(autoincrement())
   name    String    @unique
   Product Product[]
 }
 
 model Product {
-  id          String   @id
+  id          Int      @id @default(autoincrement())
   name        String   @unique
-  image       Json
+  image       String
   description String
   price       Int?
-  categoryId  String
+  categoryId  Int
   Category    Category @relation(fields: [categoryId], references: [id])
 }

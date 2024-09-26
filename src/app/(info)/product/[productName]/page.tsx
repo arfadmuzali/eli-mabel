@@ -1,5 +1,3 @@
-"use client";
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import formatToRupiah from "@/lib/formatToRupiah";
 import Image from "next/image";
@@ -11,33 +9,46 @@ import {
 } from "@/components/ui/accordion";
 import ProductSkeleton from "@/components/skeleton/productSkeleton";
 import Link from "next/link";
-export default function Product({
-  params: { productName },
-}: {
-  params: { productName: string };
-}) {
-  async function getProductByName() {
-    try {
-      const response = await axios.get("/api/products/" + productName);
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
+
+// Fungsi untuk mengambil data produk dari API menggunakan axios
+async function getProductByName(productName: string) {
+  try {
+    const response = await axios.get(
+      `http://localhost:3000/api/products/${productName}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
   }
-  const { data, isLoading }: any = useQuery({
-    queryKey: ["getProduct"],
-    queryFn: getProductByName,
-  });
+}
+
+interface ProductProps {
+  params: {
+    productName: string;
+  };
+}
+
+export default async function Product({
+  params: { productName },
+}: ProductProps) {
+  const product = await getProductByName(productName);
+
+  if (!product) {
+    return (
+      <p className="m-44 text-4xl font-bold text-center ">Product not found</p>
+    );
+  }
 
   return (
     <div className="flex flex-col lg:flex-row p-5 gap-5 lg:px-14">
-      {isLoading ? (
+      {!product ? (
         <ProductSkeleton />
       ) : (
         <>
           <Image
-            src={data?.image?.url}
-            alt={data?.name || "sdanwd"}
+            src={product.image}
+            alt={product.name || "Product Image"}
             quality={100}
             width={400}
             height={400}
@@ -45,8 +56,8 @@ export default function Product({
             className="lg:w-3/6 m-auto"
           />
           <div className="flex flex-col lg:w-3/6 gap-4">
-            <h1 className="text-3xl font-semibold">{data?.name}</h1>
-            <p>Harga: {formatToRupiah(data?.price)}</p>
+            <h1 className="text-3xl font-semibold">{product.name}</h1>
+            <p>Harga: {formatToRupiah(product.price)}</p>
             <Accordion
               type="single"
               defaultValue="description"
@@ -55,7 +66,7 @@ export default function Product({
             >
               <AccordionItem value="description">
                 <AccordionTrigger>Deskripsi Barang</AccordionTrigger>
-                <AccordionContent>{data?.description}</AccordionContent>
+                <AccordionContent>{product.description}</AccordionContent>
               </AccordionItem>
             </Accordion>
             <Link
@@ -63,7 +74,7 @@ export default function Product({
                 pathname: "https://api.whatsapp.com/send",
                 query: {
                   phone: "6281390621386",
-                  text: `Hallo saya ingin pesan ${data?.name}. Tolong dibantu, Terima kasih`,
+                  text: `Hallo saya ingin pesan ${product.name}. Tolong dibantu, Terima kasih`,
                 },
               }}
               className="text-lg py-2 bg-green-600 text-primary-foreground hover:bg-green-500 rounded text-center"
@@ -71,7 +82,7 @@ export default function Product({
               Pesan Sekarang
             </Link>
             <p className="text-sm text-stone-500">
-              Category: {data?.Category?.name}
+              Category: {product?.Category?.name}
             </p>
           </div>
         </>
