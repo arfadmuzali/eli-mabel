@@ -11,7 +11,7 @@ export default function WhyUsSection() {
     });
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center my-10 mx-5 md:mx-28 gap-10">
+    <div className="flex flex-col items-center justify-center my-10 mx-2 md:mx-28 gap-10">
       <div className="flex flex-col md:flex-row md:items-center justify-start">
         <Image
           src={"/img/carousel/carousel2.jpg"}

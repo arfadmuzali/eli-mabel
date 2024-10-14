@@ -7,13 +7,17 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { TabsTrigger, Tabs, TabsContent, TabsList } from "../ui/tabs";
 
-export default function Menu() {
+export default function Menu({
+  iconColor = "text-black",
+}: {
+  iconColor?: "text-black" | "text-white";
+}) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className="block lg:hidden">
-        <MenuIcon className="text-black" />
+        <MenuIcon className={iconColor} />
       </SheetTrigger>
       <SheetContent className="bg-stone-100">
         <form
@@ -35,7 +39,7 @@ export default function Menu() {
             variant={"outline"}
             className="bg-white rounded-l-none norder-l-0"
           >
-            <SearchIcon className="text-black " />
+            <SearchIcon className="text-black" />
           </Button>
         </form>
         <Tabs defaultValue="menu" className="w-full">
@@ -65,35 +69,39 @@ export default function Menu() {
               Kontak
             </Link>
           </TabsContent>
-          <TabsContent value="category">
+          <TabsContent
+            value="category"
+            className="flex flex-col gap-5 my-3"
+            onClick={() => setIsOpen(false)}
+          >
             {" "}
             <Link
               href={"/product?category=1"}
-              className={"text-sm hover:text-yellow-700"}
+              className={"text-sm hover:text-yellow-700 p-2 brder-b "}
             >
               Ruang Kantor
             </Link>
             <Link
               href={"/product?category=2"}
-              className={"hover:text-yellow-700"}
+              className={"text-sm hover:text-yellow-700 p-2 brder-b"}
             >
               Ruang Makan
             </Link>
             <Link
               href={"/product?category=3"}
-              className={"text-sm hover:text-yellow-700"}
+              className={"text-sm hover:text-yellow-700 p-2 brder-b "}
             >
               Kamar Tidur
             </Link>
             <Link
               href={"/product?category=5"}
-              className={"text-sm hover:text-yellow-700"}
+              className={"text-sm hover:text-yellow-700 p-2 brder-b "}
             >
               Ruang Tamu
             </Link>
             <Link
               href={"/product?category=4"}
-              className={"text-sm hover:text-yellow-700"}
+              className={"text-sm hover:text-yellow-700 p-2 brder-b "}
             >
               Produk Lainnya
             </Link>

@@ -52,7 +52,7 @@ export default function NavbarLobby() {
             Kontak
           </Link>
         </div>
-        <Menu />
+        <Menu iconColor="text-white" />
       </div>
 
       {!isInView ? (
