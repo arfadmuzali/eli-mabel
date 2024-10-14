@@ -1,3 +1,4 @@
+"use client";
 import {
   PaginationEllipsis,
   PaginationItem,
@@ -10,6 +11,10 @@ export const generatePaginationLinks = (
   onPageChange: (page: number) => void
 ) => {
   const pages: JSX.Element[] = [];
+
+  // Pastikan totalPages minimal 1
+  totalPages = Math.max(totalPages, 1);
+
   if (totalPages <= 6) {
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
@@ -36,8 +41,9 @@ export const generatePaginationLinks = (
         </PaginationItem>
       );
     }
-    if (2 < currentPage && currentPage < totalPages - 1) {
-      pages.push(<PaginationEllipsis />);
+
+    if (currentPage > 2 && currentPage < totalPages - 1) {
+      pages.push(<PaginationEllipsis key="ellipsis-start" />);
       pages.push(
         <PaginationItem key={currentPage}>
           <PaginationLink
@@ -49,7 +55,11 @@ export const generatePaginationLinks = (
         </PaginationItem>
       );
     }
-    pages.push(<PaginationEllipsis />);
+
+    if (currentPage < totalPages - 1) {
+      pages.push(<PaginationEllipsis key="ellipsis-end" />);
+    }
+
     for (let i = totalPages - 1; i <= totalPages; i++) {
       pages.push(
         <PaginationItem key={i}>
@@ -63,5 +73,6 @@ export const generatePaginationLinks = (
       );
     }
   }
+
   return pages;
 };

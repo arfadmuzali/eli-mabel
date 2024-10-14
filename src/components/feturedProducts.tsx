@@ -2,8 +2,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Link from "next/link";
-import Image from "next/image";
-import { type Product } from "@prisma/client";
+import { Image, Product } from "@prisma/client";
+import { Card } from "./ui/card";
+import { CardProduct } from "./ui/cardProduct";
+import { Button } from "./ui/button";
 
 export default function FeaturedProducts() {
   async function getProducts() {
@@ -15,41 +17,30 @@ export default function FeaturedProducts() {
     queryFn: getProducts,
   });
   return (
-    <div className="flex flex-col items-center py-10">
-      <h1 className="text-2xl text-center  mb-5 font-semibold text-stone-700 w-full p-10">
+    <div className="flex flex-col my-14 items-center gap-5">
+      <h1 className="text-3xl text-center font-extrabold text-stone-700 w-full">
         Produk Unggulan
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-5 gap-2 ">
-        {query?.data?.map(
-          (
-            product: Product & {
-              image: {
-                url: string;
-              };
-            }
-          ) => {
-            return (
-              <Link
-                key={product.id}
-                href={"/product/" + product.name.replaceAll(" ", "-")}
-                className=" bg-stone-700 flex justify-center items-center"
-              >
-                <span className="z-10 group-hover:scale-105 absolute text-white font-bold text-xl md:w-60 w-40 text-center">
-                  {product.name}
-                </span>
-                <Image
-                  src={product.image}
-                  alt="image"
-                  width={400}
-                  height={400}
-                  className="object-cover hover:scale-105 hover:brightness-75 md:w-72 w-44 h-44 md:h-72 transition-all duration-300 bg-center "
-                  quality={60}
-                />
-              </Link>
-            );
-          }
-        )}
+      <div className="md:gap-10 gap-5 flex flex-wrap justify-center items-center">
+        {query?.data?.map((product: Product & { image: Image[] }) => {
+          return (
+            <CardProduct
+              key={product.id}
+              productDescription={product.description}
+              productId={product.id}
+              productImage={product.image?.[0].url}
+              productName={product.name}
+            />
+          );
+        })}
       </div>
+
+      <Link
+        href={"/product"}
+        className="bg-yellow-600 hover:bg-yellow-600/90 text-white p-2 rounded"
+      >
+        Lihat Semua Produk
+      </Link>
     </div>
   );
 }

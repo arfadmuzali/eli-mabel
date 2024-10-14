@@ -1,98 +1,57 @@
 "use client";
-import { Card, CardContent } from "./ui/card";
-import { motion } from "framer-motion";
-import carousel1 from "@/../public/img/carousel/carousel1.jpg";
-import carousel2 from "@/../public/img/carousel/carousel2.jpg";
-import carousel3 from "@/../public/img/carousel/carousel3.jpg";
-import carousel4 from "@/../public/img/carousel/carousel4.jpg";
-import Autoplay from "embla-carousel-autoplay";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "./ui/carousel";
 import Image from "next/image";
-
-const carouselImages: { src: string }[] = [
-  {
-    src: carousel1.src,
-  },
-  {
-    src: carousel2.src,
-  },
-  {
-    src: carousel3.src,
-  },
-  {
-    src: carousel4.src,
-  },
-];
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function WhyUsSection() {
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      once: true,
+    });
+  }, []);
   return (
-    <div className="flex flex-col lg:flex-row  justify-evenly items-center gap-7">
-      <Carousel
-        plugins={[
-          Autoplay({
-            delay: 3000,
-          }),
-        ]}
-        opts={{
-          loop: true,
-        }}
-        className="w-full  max-w-md z-0 md:m-auto lg:m-0"
-      >
-        <CarouselContent>
-          {carouselImages.map((image, index) => {
-            return (
-              <CarouselItem key={index}>
-                <div className="">
-                  <Card className="m-2">
-                    <CardContent className="flex aspect-square items-center justify-center p-1 ">
-                      <Image
-                        src={image.src}
-                        alt="carouselImage"
-                        width={500}
-                        height={500}
-                        className="w-full"
-                      />
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            );
-          })}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-      <motion.div
-        initial={{
-          y: 100,
-          opacity: 0,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-        }}
-        // viewport={{ once: true }}
-        transition={{
-          type: "tween",
-          duration: 1,
-        }}
-        className="flex flex-col  lg:py-20 lg:w-2/6 gap-10"
-      >
-        <h1 className="text-2xl font-bold text-center text-stone-700">
-          Kenapa Kami?
-        </h1>
-        <p className="text-lg text-center">
-          Kami adalah pilihan utama karena dedikasi kami pada kualitas tanpa
-          kompromi. Setiap produk kami dihasilkan dengan teliti untuk memastikan
-          kepuasan pelanggan yang tak terbantahkan
-        </p>
-      </motion.div>
+    <div className="flex flex-col items-center justify-center my-10 mx-5 md:mx-28 gap-10">
+      <div className="flex flex-col md:flex-row md:items-center justify-start">
+        <Image
+          src={"/img/carousel/carousel2.jpg"}
+          alt="image"
+          width={400}
+          height={400}
+          className="w-52 md:w-96 rounded-lg shadow-xl"
+        />
+        <div
+          data-aos={"fade-right"}
+          className="p-5 w-[20rem] md:w-[40rem] md:space-y-3 space-y-2 shadow-xl bg-white relative bottom-10 md:bottom-0 md:right-16 rounded-lg"
+        >
+          <h1 className="text-xl md:text-2xl font-bold">Kenapa Kami?</h1>
+          <p className="text-sm  md:text-lg">
+            ELI MEBEL menghadirkan mebel berkualitas tinggi dengan desain unik
+            yang disesuaikan untuk memenuhi kebutuhan Anda.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-col-reverse md:flex-row md:items-center items-end">
+        <div
+          data-aos={"fade-left"}
+          className="p-5 w-[20rem] md:w-[40rem] md:space-y-3 space-y-2 shadow-xl bg-white relative bottom-10 md:bottom-0  md:left-16 rounded-lg"
+        >
+          <h1 className="text-xl md:text-2xl font-bold">Kelebihan Kami?</h1>
+          <p className="text-sm md:text-lg">
+            ELI MEBEL selalu mengikuti tren desain terkini, memastikan setiap
+            produk kami modern, stylish, dan sesuai dengan perkembangan gaya
+            interior terbaru.
+          </p>
+        </div>
+        <Image
+          src={"/img/carousel/carousel4-crop.jpg"}
+          alt="image"
+          width={400}
+          height={400}
+          className="w-52 md:w-96 rounded-lg shadow-xl"
+        />
+      </div>
     </div>
   );
 }

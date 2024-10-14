@@ -3,7 +3,10 @@ import { Skeleton } from "../ui/skeleton";
 export default function ProductSearchSkeleton() {
   const temp: string[] = new Array(12).fill("");
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-10 gap-16 w-max justify-center items-center m-auto">
+    <div
+      className="flex flex-wrap
+     gap-5 justify-center items-center"
+    >
       {temp.map((e, index) => {
         return (
           <div key={index}>

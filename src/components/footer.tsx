@@ -1,56 +1,84 @@
 import Image from "next/image";
 import Link from "next/link";
 import Whatsapp from "@/../public/icon/whatsapp-logo.png";
+import prisma from "@/lib/db";
 
-export default function Footer() {
+async function getCategoryProduct() {
+  try {
+    const response = await prisma.category.findMany();
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export default async function Footer() {
+  const response = await getCategoryProduct();
   return (
-    <div className="w-full flex flex-col gap-10 justify-center items-center p-5 text-sm border-t border-stone-300 bg-stone-700 text-white">
-      <div className="flex flex-col justify-center items-center">
-        <Link
-          href={{
-            pathname: "https://api.whatsapp.com/send",
-            query: {
-              phone: "6281390621386",
-              text: `Hallo saya ingin pesan mebel. Tolong dibantu, Terima kasih`,
-            },
-          }}
-          className="w-full m-2 p-1 bg-green-600 flex flex-row justify-center items-center rounded"
-        >
+    <div className="w-full justify-center items-start p-5 text-sm border-t border-stone-300 bg-stone-700 text-white">
+      <div className="flex md:flex-row flex-col justify-start gap-20 items-start mb-5 my-2 mx-3 ">
+        <div className="m-auto md:m-0">
           <Image
-            src={Whatsapp.src}
-            alt="whatsapp icon"
-            width={50}
-            height={50}
-            loading="lazy"
+            src={"/icon/icon-white.svg"}
+            alt="logo"
+            width={150}
+            height={150}
           />
-          <h1 className="text-white font-bold">
-            ORDER LANGSUNG LEWAT WHATSAPP
-          </h1>
-        </Link>
-        <div className="flex gap-4 my-2">
-          {/* <Link href={"/"} className="hover:text-stone-500 text-lg ">
+        </div>
+
+        <div className="flex gap-4 flex-col">
+          <h1 className="md:text-xl text-2xl font-bold">Halaman</h1>
+          <Link
+            href={"/"}
+            className="hover:text-stone-500 text-base md:text-sm "
+          >
             Home
-          </Link> */}
-          <Link href={"/product"} className="hover:text-stone-500 text-lg ">
+          </Link>
+          <Link
+            href={"/product"}
+            className="hover:text-stone-500 text-base md:text-sm "
+          >
             Produk
           </Link>
-          <Link href={"/about"} className="hover:text-stone-500 text-lg ">
+          <Link
+            href={"/about"}
+            className="hover:text-stone-500 text-base md:text-sm "
+          >
             Tentang Kami
           </Link>
-          <Link href={"/contact"} className="hover:text-stone-500 text-lg ">
+          <Link
+            href={"/contact"}
+            className="hover:text-stone-500 text-base md:text-sm "
+          >
             Contact
           </Link>
         </div>
+
+        <div className="flex gap-4 flex-col">
+          <h1 className="md:text-xl text-2xl font-bold">Category</h1>
+          {response?.map((item) => {
+            return (
+              <Link
+                key={item.id}
+                href={"/"}
+                className="hover:text-stone-500 text-base md:text-sm"
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
       </div>
-      <h1>
-        Made with love by{" "}
-        <Link
-          href={"https://github.com/arfadmuzali"}
-          className="underline font-medium"
-        >
-          Arfad Muzali
-        </Link>
-      </h1>
+
+      <div className="border-t w-full text-center pt-2">
+        <h1>
+          Build with love by{" "}
+          <Link href={"https://github.com/arfadmuzali"} className="">
+            Arfad Muzali
+          </Link>
+        </h1>
+      </div>
     </div>
   );
 }

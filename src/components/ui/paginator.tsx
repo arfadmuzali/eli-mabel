@@ -1,11 +1,11 @@
+"use client";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
-  PaginationNext,
-  PaginationPrevious,
 } from "@/components/ui/pagination";
 import { generatePaginationLinks } from "./generate-pages";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type PaginatorProps = {
   currentPage: number;
@@ -25,19 +25,25 @@ export default function Paginator({
       <PaginationContent>
         {showPreviousNext && totalPages ? (
           <PaginationItem>
-            <PaginationPrevious
+            <button
               onClick={() => onPageChange(currentPage - 1)}
               disabled={currentPage - 1 < 1}
-            ></PaginationPrevious>
+            >
+              {" "}
+              <ChevronLeft className="h-6 w-6" />
+            </button>
           </PaginationItem>
         ) : null}
         {generatePaginationLinks(currentPage, totalPages, onPageChange)}
         {showPreviousNext && totalPages ? (
           <PaginationItem>
-            <PaginationNext
+            <button
               onClick={() => onPageChange(currentPage + 1)}
               disabled={currentPage > totalPages - 1}
-            ></PaginationNext>
+            >
+              {" "}
+              <ChevronRight className="h-6 w-6" />
+            </button>
           </PaginationItem>
         ) : null}
       </PaginationContent>

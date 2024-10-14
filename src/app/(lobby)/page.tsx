@@ -13,8 +13,8 @@ export default function Home() {
     <QueryClientProvider client={queryClient}>
       <div>
         <Hero />
-        <Collection />
         <ServiceSection />
+        <Collection />
         <WhyUsSection />
         <FeaturedProducts />
       </div>

@@ -4,27 +4,16 @@ import PakELiImage from "@/../public/img/pak-eli-image.jpg";
 export default function AboutPage() {
   return (
     <>
-      <h1 className="m-auto w-fit p-2 mt-5 text-lg font-medium border px-10 text-stone-700">
-        Tentang Kami
-      </h1>
-
-      <div className="flex flex-col gap-5 justify-center items-start lg:flex-row p-10">
-        <Image
-          src={PakELiImage.src}
-          alt="Pak Eli"
-          width={500}
-          height={500}
-          className="image lg:w-2/6"
-          priority
-        />
+      <div className="flex flex-col-reverse gap-5 justify-center items-start lg:flex-row p-10">
         <div className="lg:w-3/6 text-sm space-y-3 text-start">
           <p>
-            <span className="text-base font-semibold">ELI MEBEL</span> adalah
-            perusahaan mebel yang berdiri kokoh sejak tahun 2012, didirikan oleh
-            Bapak Elya Wahyudi, seorang pengrajin berpengalaman yang memiliki
-            dedikasi tinggi terhadap kualitas dan keindahan dalam industri
-            mebel. Dengan fokus pada desain inovatif dan kepuasan pelanggan,
-            kami telah menjadi salah satu pemimpin dalam industri mebel lokal.
+            <h1 className="text-3xl mb-2 font-bold">ELI MEBEL</h1>
+            <span>ELI MEBEL</span> adalah perusahaan mebel yang berdiri kokoh
+            sejak tahun 2012, didirikan oleh Bapak Elya Wahyudi, seorang
+            pengrajin berpengalaman yang memiliki dedikasi tinggi terhadap
+            kualitas dan keindahan dalam industri mebel. Dengan fokus pada
+            desain inovatif dan kepuasan pelanggan, kami telah menjadi salah
+            satu pemimpin dalam industri mebel lokal.
           </p>
           <p>
             Kami menawarkan beragam koleksi mebel mulai dari furnitur ruang
@@ -52,6 +41,14 @@ export default function AboutPage() {
             unik untuk setiap kebutuhan furnitur Anda.
           </p>
         </div>
+        <Image
+          src={PakELiImage.src}
+          alt="Pak Eli"
+          width={500}
+          height={500}
+          className="image lg:w-2/6 rounded-md"
+          priority
+        />
       </div>
     </>
   );

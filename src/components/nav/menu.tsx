@@ -1,47 +1,104 @@
 "use client";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, SearchIcon } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { useState } from "react";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { TabsTrigger, Tabs, TabsContent, TabsList } from "../ui/tabs";
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className="block lg:hidden">
-        <MenuIcon />
+        <MenuIcon className="text-black" />
       </SheetTrigger>
       <SheetContent className="bg-stone-100">
-        <div className="flex flex-col my-3 gap-5 text-xl font-semibold text-center">
-          <Link
-            className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
-            onClick={() => setIsOpen(false)}
-            href={"/"}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setIsOpen(false);
+          }}
+          className="mb-2 flex items-center justify-center"
+        >
+          <Input
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            type="text"
+            className="rounded-r-none border-r-0"
+            placeholder="Cari..."
+          />
+          <Button
+            type="submit"
+            variant={"outline"}
+            className="bg-white rounded-l-none norder-l-0"
           >
-            Home
-          </Link>
-          <Link
-            className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
+            <SearchIcon className="text-black " />
+          </Button>
+        </form>
+        <Tabs defaultValue="menu" className="w-full">
+          <TabsList className="w-full">
+            <TabsTrigger value="menu" className="w-full">
+              Menu
+            </TabsTrigger>
+            <TabsTrigger value="category" className="w-full">
+              Kategori
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent
             onClick={() => setIsOpen(false)}
-            href={"/product"}
+            value="menu"
+            className="flex flex-col gap-5 my-3"
           >
-            Produk
-          </Link>
-          <Link
-            className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
-            onClick={() => setIsOpen(false)}
-            href={"/about"}
-          >
-            Tentang
-          </Link>
-          <Link
-            className="hover:bg-stone-200 active:bg-stone-200 p-2 rounded"
-            onClick={() => setIsOpen(false)}
-            href={"/contact"}
-          >
-            Contact
-          </Link>
-        </div>
+            <Link href={"/"} className=" text-center border-b p-2">
+              Home
+            </Link>
+            <Link href={"/product"} className=" text-center border-b p-2">
+              Produk
+            </Link>
+            <Link href={"/about"} className=" text-center border-b p-2">
+              Tentang
+            </Link>
+            <Link href={"/contact"} className=" text-center border-b p-2">
+              Kontak
+            </Link>
+          </TabsContent>
+          <TabsContent value="category">
+            {" "}
+            <Link
+              href={"/product?category=1"}
+              className={"text-sm hover:text-yellow-700"}
+            >
+              Ruang Kantor
+            </Link>
+            <Link
+              href={"/product?category=2"}
+              className={"hover:text-yellow-700"}
+            >
+              Ruang Makan
+            </Link>
+            <Link
+              href={"/product?category=3"}
+              className={"text-sm hover:text-yellow-700"}
+            >
+              Kamar Tidur
+            </Link>
+            <Link
+              href={"/product?category=5"}
+              className={"text-sm hover:text-yellow-700"}
+            >
+              Ruang Tamu
+            </Link>
+            <Link
+              href={"/product?category=4"}
+              className={"text-sm hover:text-yellow-700"}
+            >
+              Produk Lainnya
+            </Link>
+          </TabsContent>
+        </Tabs>
       </SheetContent>
     </Sheet>
   );

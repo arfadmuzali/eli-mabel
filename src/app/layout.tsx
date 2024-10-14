@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "aos/dist/aos.css";
 
-const inter = Inter({ subsets: ["latin"] });
-import Navbar from "@/components/nav/navbarLobby";
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -35,12 +38,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className + " bg-stone-50 bg-opacity-15"}
-        style={{
-          backgroundImage: "url('/img/topography.svg')",
-          // backgroundBlendMode: "soft-light",
-          backgroundRepeat: "repeat",
-        }}
+        className={inter.className + " bg-white bg-opacity-15"}
+        style={
+          {
+            // backgroundImage: "url('/img/topography.svg')",
+            // backgroundBlendMode: "soft-light",
+            // backgroundRepeat: "repeat",
+          }
+        }
         suppressHydrationWarning
       >
         <div className="flex flex-col justify-between">
